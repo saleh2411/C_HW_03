@@ -3,9 +3,23 @@
 #include <string.h>
 #include <ctype.h>
 
+//lower case entire string
+void lower_str(char str[]){
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        str[i] = tolower(str[i]);
+    }
+    
+}
+//lower case entire lst - pool
+void lower_lst(char pool[][11],int pool_size){
+    for(int i =0 ; i<pool_size ; i++){
+        lower_str(pool[i]);
+    }
 
+}
 // this ex2
-int match_count( char str[], char pool[][11]){
+int match_count(char str[], char pool[][11], int pool_size){
     int counter = 0;
     return counter;
 }
@@ -19,17 +33,26 @@ int main(){
     // enter the your string
     printf("Enter the search string:\n");
     scanf("%10s", str);
+    //replicate the str
+    char str2print [11];
+    memmove(str2print, str, sizeof(str));
+
 
     //enter your pool
     int eof;
     int pool_size = 0;
+    printf("Enter the strings pool:\n");
     do
     {
         eof = scanf("%10s", pool[pool_size]);
         pool_size++;
     } while (pool_size < 20 && eof >= 0);
 
-    printf("Number of permutations of \"%s\ in the strings pool is: %d",str , match_count(str, pool));
+    //lower case all
+    lower_str(str);
+    lower_lst(pool, pool_size);
+    //print result
+    printf("Number of permutations of \"%s\" in the strings pool is: %d\n",str2print , match_count(str, pool, pool_size));
 
     return 0;
 }
