@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 
-
+// this ex2
 int match_count( char str[], char pool[][11]){
     int counter = 0;
     return counter;
