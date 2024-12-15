@@ -29,7 +29,7 @@ int main(){
         pool_size++;
     } while (pool_size < 20 && eof >= 0);
 
-    printf("Number of permutations of "%s" in the strings pool is: %d",str , match_count(str, pool));
+    printf("Number of permutations of \"%s\ in the strings pool is: %d",str , match_count(str, pool));
 
     return 0;
 }
