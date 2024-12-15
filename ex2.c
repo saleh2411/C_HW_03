@@ -4,6 +4,7 @@
 #include <ctype.h>
 
 
+
 int match_count( char str[], char pool[][11]){
     int counter = 0;
     return counter;
@@ -12,7 +13,7 @@ int match_count( char str[], char pool[][11]){
 int main(){
     char str [11]; 
     char pool [20][11];
-    
+
     
 
     // enter the your string
