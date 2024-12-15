@@ -13,6 +13,7 @@ int main(){
     char str [11]; 
     char pool [20][11];
     
+    
 
     // enter the your string
     printf("Enter the search string:\n");
