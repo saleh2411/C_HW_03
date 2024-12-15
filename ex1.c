@@ -71,7 +71,7 @@ void getPlayerMove(int player_num, char player_sym, char board[MAX_SIZE][MAX_SIZ
 
     while (1) {
         printf("Player %d, please insert your move:", player_num);
-        if (scanf("%d,%d", &row, &col) != 2) {
+        if (scanf(" %d , %d", &row, &col) != 2) {
             printf("Invalid indices, please choose your move again:\n");
             while (getchar() != '\n');
             continue;
