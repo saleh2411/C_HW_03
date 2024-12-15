@@ -18,9 +18,18 @@ void lower_lst(char pool[][11],int pool_size){
     }
 
 }
-// this ex2
+
 int match_count(char str[], char pool[][11], int pool_size){
     int counter = 0;
+    for(int curr_pool_str ; curr_pool_str<pool_size ;curr_pool_str++){
+        for (int curr_str_char = 0; curr_str_char<strlen(str); curr_str_char++)
+        {
+            for(int curr_pool_char = 0 ;curr_pool_char < strlen(pool[curr_pool_str]) ; curr_pool_char++){
+                
+            }
+        }
+        
+    }
     return counter;
 }
 
@@ -28,15 +37,13 @@ int main(){
     char str [11]; 
     char pool [20][11];
 
-    
-
     // enter the your string
     printf("Enter the search string:\n");
     scanf("%10s", str);
+
     //replicate the str
     char str2print [11];
     memmove(str2print, str, sizeof(str));
-
 
     //enter your pool
     int eof;
@@ -51,6 +58,7 @@ int main(){
     //lower case all
     lower_str(str);
     lower_lst(pool, pool_size);
+
     //print result
     printf("Number of permutations of \"%s\" in the strings pool is: %d\n",str2print , match_count(str, pool, pool_size));
 
