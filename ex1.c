@@ -23,7 +23,6 @@ void printBoard(char board[MAX_SIZE][MAX_SIZE], int boardSize) {
         }
         printf("\n");
     }
-    printf("\n");
 }
 
 // if player has won
@@ -94,7 +93,7 @@ int main() {
     scanf("%d", &boardSize);
 
     initializeBoard(board, boardSize);
-    printf("Welcome to %dx%d Tic-Tac-Toe:\n", boardSize, boardSize);
+    printf("Welcome to %dx%d Tic-Tac-Toe:", boardSize, boardSize);
     printBoard(board, boardSize);
 
     int player_num = 1;
@@ -106,7 +105,7 @@ int main() {
 
         // Check for winner
         if (checkWinner(player_sym, board, boardSize)) {
-            printf("Player %d is the winner!\n", player_num, player_sym);
+            printf("Player %d is the winner!\n", player_num);
             return 0;
         }
 
