@@ -45,8 +45,9 @@ int is_permutations(char str[], char pool_str []){
 int match_count(char str[], char pool[][11], int pool_size){
     int counter = 0;
     for(int curr_pool_str ; curr_pool_str<pool_size ;curr_pool_str++){
+        if ( is_permutations(str , pool[curr_pool_str]) ) counter++;
     }
-    
+
     return counter;
 }
 
