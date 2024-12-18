@@ -22,22 +22,23 @@ void lower_lst(char pool[][11],int pool_size){
 
 int is_permutations(char str[], char pool_str []){
     int matches = 0;
-    // int pool_str_len = strlen(pool_str);
-    if (strlen(str) == strlen(pool_str))
+    int str_len = strlen(str);
+    if (str_len == strlen(pool_str))
     {
-        for (int i = 0; i < strlen(str)-1; i++)
+        for (int i = 0; i < str_len-1; i++)
         {
-         for (int j = 0; j < sizeof(pool_str); j++)
+         for (int j = 0; j < sizeof(pool_str)-1; j++)
           {
             if (str[i] == pool_str[j])
             {
                 matches++;
                 pool_str[j] = '\0';
+                break;
             }
           }
         
         }
-        if(matches == strlen(str)) return 1;
+        if(matches == str_len) return 1;
     }
     return 0;   
 }
@@ -47,7 +48,6 @@ int match_count(char str[], char pool[][11], int pool_size){
     for(int curr_pool_str ; curr_pool_str<pool_size ;curr_pool_str++){
         if ( is_permutations(str , pool[curr_pool_str]) ) counter++;
     }
-
     return counter;
 }
 
