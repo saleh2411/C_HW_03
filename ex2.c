@@ -27,7 +27,7 @@ int is_permutations(char str[], char pool_str []){
     {
         for (int i = 0; i < str_len-1; i++)
         {
-         for (int j = 0; j < sizeof(pool_str)-1; j++)
+         for (int j = 0; j < 11; j++)
           {
             if (str[i] == pool_str[j])
             {
