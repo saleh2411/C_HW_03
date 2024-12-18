@@ -13,7 +13,7 @@ void initializeBoard(char board[MAX_SIZE][MAX_SIZE], int boardSize) {
     }
 }
 
-// print_board
+// print_boardp
 void printBoard(char board[MAX_SIZE][MAX_SIZE], int boardSize) {
     printf("\n");
     for (int i = 0; i < boardSize; i++) {
