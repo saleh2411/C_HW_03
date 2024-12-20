@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-//lower case entire string
+//lower_case_string
 void lower_str(char str[]){
     for (int i = 0; str[i] != '\0'; i++)
     {
@@ -11,14 +11,14 @@ void lower_str(char str[]){
     }
     
 }
-//lower case entire lst - pool
+
+//lower_case_pool
 void lower_lst(char pool[][11],int pool_size){
     for(int i =0 ; i<pool_size ; i++){
         lower_str(pool[i]);
     }
 
 }
-
 
 int is_permutations(char str[], char pool_str[]) {
     int str_freq[256] = {0}, pool_freq[256] = {0};
@@ -48,32 +48,33 @@ int match_count(char str[], char pool[][11], int pool_size){
 }
 
 int main(){
-    char str [11]; 
-    char pool [20][11];
-
-    // enter the your string
-    printf("Enter the search string:\n");
-    scanf("%10s", str);
-
-    //replicate the str
-    char str2print [11];
-    memmove(str2print, str, sizeof(str));
-
-    //enter your pool
-    int eof;
+    char str[11];
+    char pool[20][11];
     int pool_size = 0;
-    printf("Enter the strings pool:\n");
-    do
-    {
-        eof = scanf("%10s", pool[pool_size]);
-        pool_size++;
-    } while (pool_size < 20 && eof >= 0);
+    printf("Enter the search string:\n");
+    if (fgets(str, sizeof(str), stdin) != NULL) {
+        str[strcspn(str, "\n")] = '\0';
+    }
+    // replicate str
+    char str2print[11];
+    memmove(str2print, str, sizeof(str));
+    str2print[10] = '\0'; //null-termination
 
-    //lower case all
+    // pool
+    printf("Enter the strings pool:\n");
+while (pool_size < 20) {
+    if (fgets(pool[pool_size], sizeof(pool[pool_size]), stdin) != NULL) {
+        pool[pool_size][strcspn(pool[pool_size], "\n")] = '\0';
+        pool_size++;
+    } else if (feof(stdin)) {
+        printf("\n");
+        break;
+    }
+}
+    //lower_case_all
     lower_str(str);
     lower_lst(pool, pool_size);
-
-    //print result
+    //print
     printf("Number of permutations of \"%s\" in the strings pool is: %d\n",str2print , match_count(str, pool, pool_size));
 
     return 0;
