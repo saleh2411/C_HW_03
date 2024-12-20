@@ -63,11 +63,29 @@ int main(){
     int eof;
     int pool_size = 0;
     printf("Enter the strings pool:\n");
-    do
-    {
-        eof = scanf("%10s", pool[pool_size]);
-        pool_size++;
-    } while (pool_size < 20 && eof >= 0);
+    
+    // {
+    //     eof = scanf("%10s", pool[pool_size]);
+    //     pool_size++;
+    // } while (pool_size < 20 && eof >= 0);
+
+    while (pool_size < 20) {
+        // Read a line up to 10 characters (including spaces)
+        if (scanf("%10[^\n]%*c", pool[pool_size]) == 1) {
+            // If a non-empty line is read, process it
+            // printf("Line %d: %s\n", line_count + 1, buffer);
+            pool_size++;
+        } else {
+            // Handle empty lines explicitly
+            int ch = getchar(); // Consume the newline character
+            if (ch == '\n') {
+                // printf("Line %d: [Empty Line]\n", line_count + 1);
+                pool_size++;
+            } else if (ch == EOF) {
+                break; // Exit loop on EOF
+            }
+        }
+    }
 
     //lower case all
     lower_str(str);
