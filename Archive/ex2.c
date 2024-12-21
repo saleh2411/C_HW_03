@@ -32,7 +32,7 @@ int is_permutations(char str[], char pool_str[]) {
         pool_freq[pool_str[i]]++;
     }
 
-    for (int i = 0; i < 255; i++) {
+    for (int i = 0; i < 256; i++) {
         if (str_freq[i] != pool_freq[i]) return 0;
     }
 
