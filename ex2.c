@@ -67,7 +67,6 @@ while (pool_size < 20) {
         pool[pool_size][strcspn(pool[pool_size], "\n")] = '\0';
         pool_size++;
     } else if (feof(stdin)) {
-        printf("\n");
         break;
     }
 }
