@@ -15,7 +15,6 @@ void initializeBoard(char board[MAX_SIZE][MAX_SIZE], int boardSize) {
 
 // print_boardp
 void printBoard(char board[MAX_SIZE][MAX_SIZE], int boardSize) {
-    printf("\n");
     for (int i = 0; i < boardSize; i++) {
         for (int j = 0; j < boardSize; j++) {
             printf("%c", board[i][j]);
@@ -67,18 +66,18 @@ int isValidMove(int row, int col, char board[MAX_SIZE][MAX_SIZE], int boardSize)
 }
 void getPlayerMove(int player_num, char player_sym, char board[MAX_SIZE][MAX_SIZE], int boardSize) {
     int row, col;
-
+    printf("Player %d, please insert your move:", player_num);
     while (1) {
-        printf("Player %d, please insert your move:", player_num);
         if (scanf(" %d , %d", &row, &col) != 2) {
-            printf("Invalid indices, please choose your move again:\n");
-            while (getchar() != '\n');
+            printf("Invalid indices, please choose your move again:");
+            while (getchar() != '\n'); // Clear the input buffer
             continue;
         }
 
         if (!isValidMove(row, col, board, boardSize)) {
-            printf("Invalid indices, please choose your move again:\n");
-        } else {
+            printf("Invalid indices, please choose your move again:");
+            } 
+            else {
             board[row - 1][col - 1] = player_sym;
             break;
         }
@@ -93,7 +92,7 @@ int main() {
     scanf("%d", &boardSize);
 
     initializeBoard(board, boardSize);
-    printf("Welcome to %dx%d Tic-Tac-Toe:", boardSize, boardSize);
+    printf("Welcome to %dx%d Tic-Tac-Toe:\n", boardSize, boardSize);
     printBoard(board, boardSize);
 
     int player_num = 1;
